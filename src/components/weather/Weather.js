@@ -3,6 +3,7 @@
 import {useState, useEffect} from "react";
 import styles from './style.module.css'
 import './weather-icons.min.css'
+import WeatherCard from "./WeatherCard";
 
 
 const Weather = () => {
@@ -11,13 +12,41 @@ const Weather = () => {
     // .then(y => document.getElementById("temp").innerHTML = typeof y);
 
     const [city,setCity] = useState('delhi');
+    const [weatherInfo, setWeatherInfo] = useState({});
 
     useEffect(() => {
         getWeather();
-    })
+    },[])
 
-    const getWeather = () => {
+    const getWeather = async() => {
+        try {
+            let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=7adf3a153b451eea706144e62dab30a1`
+
+            const res = await fetch(url);
+            const data = await res.json();
+
+            const { temp, humidity, pressure } = data.main;
+            const {main: weatherMood} = data.weather[0];
+            const { name } = data;
+            const { speed } = data.wind;
+            const { country, sunset} = data.sys;
             
+            const myWeatherInfo = {
+                temp,
+                humidity,
+                pressure,
+                weatherMood,
+                name,
+                speed,
+                country,
+                sunset
+            }
+
+            setWeatherInfo(myWeatherInfo);
+
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const handleChange = (e) => {
@@ -47,51 +76,7 @@ const Weather = () => {
                 </div>
             </div>
             
-            {/* OUR TEMP CARD */}
-            <article className={styles.widget}>
-                <div className={styles.weatherIcon}>
-                    <i className="wi wi-day-sunny"></i>
-                </div>
-                
-                <div className={styles.basicInfo}>
-                    <div className={styles.weatherInfo}>
-                        <span>25.5&deg;</span>
-                    </div>
-                    <div className={styles.weatherConditions}>
-                        sunny    
-                    </div>
-                    <div className={styles.place}>
-                        maharashtra
-                    </div>
-                    <div className={styles.date}>
-                        {new Date().toLocaleString()}
-                    </div>
-                </div>
-
-                {/* Our 4 devided section */}
-                <div className={styles.extraInfo}>
-                    <div className={styles.sunset}>
-                        <i className="wi wi-day-sunny"></i>    
-                        <i>15:26 PM Sunset</i>
-                    </div>
-                    <div className={styles.humidity}>
-                        <i className="wi wi-day-sunny"></i>    
-                        <i>90% Humidity</i>
-                    </div>
-                    <div className={styles.pressure}>
-                        <i className="wi wi-day-sunny"></i>    
-                        <i>60% pressure</i>
-                    </div>
-                    <div className={styles.wind}> 
-                        <i className="wi wi-day-sunny"></i>    
-                        <i>50 KM/H Speed</i>
-                    </div>
-                </div>
-            </article>
-
-
-            
-
+            <WeatherCard weatherInfo={weatherInfo}/>
         </>
     )
 }
