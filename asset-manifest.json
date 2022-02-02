@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/weatherApp/static/css/main.35e2ed43.chunk.css",
+    "main.js": "/weatherApp/static/js/main.a8fa14d0.chunk.js",
+    "main.js.map": "/weatherApp/static/js/main.a8fa14d0.chunk.js.map",
+    "runtime-main.js": "/weatherApp/static/js/runtime-main.ca5cda26.js",
+    "runtime-main.js.map": "/weatherApp/static/js/runtime-main.ca5cda26.js.map",
+    "static/js/2.8a5b5bfd.chunk.js": "/weatherApp/static/js/2.8a5b5bfd.chunk.js",
+    "static/js/2.8a5b5bfd.chunk.js.map": "/weatherApp/static/js/2.8a5b5bfd.chunk.js.map",
+    "static/js/3.00d28776.chunk.js": "/weatherApp/static/js/3.00d28776.chunk.js",
+    "static/js/3.00d28776.chunk.js.map": "/weatherApp/static/js/3.00d28776.chunk.js.map",
+    "index.html": "/weatherApp/index.html",
+    "static/css/main.35e2ed43.chunk.css.map": "/weatherApp/static/css/main.35e2ed43.chunk.css.map",
+    "static/js/2.8a5b5bfd.chunk.js.LICENSE.txt": "/weatherApp/static/js/2.8a5b5bfd.chunk.js.LICENSE.txt",
+    "static/media/weather-icons.min.css": "/weatherApp/static/media/weathericons-regular-webfont.e218aee6.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ca5cda26.js",
+    "static/js/2.8a5b5bfd.chunk.js",
+    "static/css/main.35e2ed43.chunk.css",
+    "static/js/main.a8fa14d0.chunk.js"
+  ]
+}
